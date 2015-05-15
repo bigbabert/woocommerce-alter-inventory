@@ -4,8 +4,8 @@
 Plugin Name: WooCommerce - Alter Inventory
 Plugin URI: http://www.altertech.it/woocommerce-alter-inventory/
 Description: This plugin display all your Woocommerce inventory products and variable products as variation, in user friendly mode on front-end in a reserved page, you can create this page simply adding a shortcode [alterinventory] to a new page. You also can simply use your woocommerce to make CMR for direct sells and keep all report of yours sells in a page with shortcode [altereports] .
-Tested on Wordpress 3.8.1 and Woocommerce 2.1.2 
-Version: 1.1b
+Tested on Wordpress 4.2 and Woocommerce 2.2.8 
+Version: 1.2.2
 Author: Bigbabert
 Author URI: http://www.blog.altertech.it
 
@@ -71,7 +71,7 @@ add_action( 'woocommerce_email_after_order_table', 'woo_add_payment_method_to_ad
 
 function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) { 
 	if ( $is_admin_email ) { 
-	echo '<p><strong>Payment Method:</strong> ' . $order->cod . '</p>'; 
+	echo '<p><strong>'.__('Payment Method','woocommerce-alter-inventory').':</strong> ' . $order->cod . '</p>'; 
 	
 	
    } 
@@ -80,50 +80,50 @@ function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) {
 				// Init settings
 				$this->settings = array(
 					array(
-						'name' => __( 'Opzioni del plugin Alter Inventory', 'woocommerce-alter-inventory' ),
+						'name' => __( 'Alter Inventory Options', 'woocommerce-alter-inventory' ),
 						'type' => 'title',
 						'id' => 'alterinventory_options'
 					),
 					array(
 						'name' => __( 'Alter Inventory', 'woocommerce-alter-inventory' ),
-						'desc' => __( 'Abilita Alter Inventory, usa lo shortcode: [alterinventory] nella pagina che userai come Front End Inventory.', 'woocommerce-alter-inventory' ),
+						'desc' => __( 'Enable Alter Inventory, use shortcode: [alterinventory] in the page you will use like Front End Inventory.', 'woocommerce-alter-inventory' ),
 						'id' => 'alterinventory_enable',
 						'type' => 'checkbox'
 					),
 					array(
 						'name' => __( 'Alter Reports', 'woocommerce-alter-inventory' ),
-						'desc' => __( 'Abilita Alter Reports, usa lo shortcode: [altereports] nella pagina che userai come Front End Reports.', 'woocommerce-alter-inventory' ),
+						'desc' => __( 'Enable Alter Reports, use shortcode: [altereports] in the page you will use like Front End Reports.', 'woocommerce-alter-inventory' ),
 						'id' => 'altereports_enable',
 						'type' => 'checkbox'
 					),
 					array(
-						'name' => __( 'Abilita Login', 'woocommerce-alter-inventory' ),
-						'desc' => __( 'Abilita Login nella pagina di Inventory', 'woocommerce-alter-inventory' ),
+						'name' => __( 'Enable Login', 'woocommerce-alter-inventory' ),
+						'desc' => __( 'Enable Login in the Alter-Inventory Page', 'woocommerce-alter-inventory' ),
 						'id' => 'alter_wp_login_form_enable',
 						'type' => 'checkbox'
 					),
 					array(
-						'name' => __( 'Abilita Vendita', 'woocommerce-alter-inventory' ),
-						'desc_tip' => __( 'Attiva Carrello e Cassa direttamente nella pagina di Alter-Inventory, potrai effettuare le vendite dirette da lì.', 'woocommerce-alter-inventory' ),
+						'name' => __( 'Enable Sell', 'woocommerce-alter-inventory' ),
+						'desc_tip' => __( 'Enable Cart and Checkout in the Alter-Inventory Page, you well sell directly.', 'woocommerce-alter-inventory' ),
 						'id' => 'alter_wp_seller_form_enable',
 						'type' => 'select',
 						'options' => array(
-						'enable'  			=> __( 'Attiva', 'woocommerce' ),
-						'disable'	=> __( 'Disattiva', 'woocommerce' ),
+						'enable'  			=> __( 'Enable', 'woocommerce' ),
+						'disable'	=> __( 'Disable', 'woocommerce' ),
 						
 					),
 						'css' 		=> 'min-width:50px;',
-						'desc' =>  __( 'Abilita la Vendita diretta nella pagina di Inventory', 'woocommerce-alter-inventory' ),
+						'desc' =>  __( 'Enable direct sell in Alter-Inventory Page', 'woocommerce-alter-inventory' ),
 						
 						
 					),
 					array(
-						'name'     => __( 'Messaggio di Errore', 'woocommerce-alter-inventory' ),
-						'desc_tip' => __( 'Inserisci il Messaggio di Errore, sarà mostrato a tutti gli utenti senza autorizzazione per vedere inventory.', 'woocommerce-alter-inventory' ),
+						'name'     => __( 'Error Message', 'woocommerce-alter-inventory' ),
+						'desc_tip' => __( 'Insert you Error Message.', 'woocommerce-alter-inventory' ),
 						'id'       => 'alterinventory_error_message',
 						'type'     => 'textarea',
 						'css'      => 'min-width:500px;',
-						'desc'     => __( 'Inserisci il tuo Messaggio di Errore.', 'woocommerce-alter-inventory' ),
+						'desc'     => __( 'Insert you Error Message.', 'woocommerce-alter-inventory' ),
 					),		'desc_tip'	=>  true,		array( 'type' => 'sectionend', 'id' => 'alter_inventory_options'),
 
 				);
@@ -133,7 +133,7 @@ function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) {
 				add_option( 'altereports_enable', 'yes' );
 				add_option( 'alter_wp_login_form_enable', 'yes' );
 				add_option( 'alter_wp_seller_form_enable', 'yes' );
-				add_option( 'alterinventory_error_message', '<h1 style="color:#F00">Spiacenti questa sezione è vietata agli utenti non autorizzati!</h1>' );
+				add_option( 'alterinventory_error_message', '<h1 style="color:#F00">This section is not allowed to users. Please contact the administrator to request the access!</h1>' );
 				
 				
 
@@ -153,9 +153,9 @@ function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) {
 					function get_inventory() {
 						
 						$options = get_option('alterinventory_options');
-						$out = (!isset($options['<h1 style="color:#F00">errormessage_template</h1>']) || $options['<h1 style="color:#F00">errormessage_template</h1>']=="") ? '<h1 style="color:#F00">Spiacenti questa sezione è vietata agli utenti non autorizzati!</h1>' : $options['errormessage_template'];
+						$out = (!isset($options['<h1 style="color:#F00">errormessage_template</h1>']) || $options['<h1 style="color:#F00">errormessage_template</h1>']=="") ? '<h1 style="color:#F00">This section is not allowed to users. Please contact the administrator to request the access!</h1>' : $options['errormessage_template'];
 						
-						$out = get_option('<h1 style="color:#F00">alterinventory_error_message</h1>', '<h1 style="color:#F00">Spiacenti questa sezione è vietata agli utenti non autorizzati!</h1>');
+						$out = get_option('<h1 style="color:#F00">alterinventory_error_message</h1>', '<h1 style="color:#F00">This section is not allowed to users. Please contact the administrator to request the access!</h1>');
 					
 						
 
@@ -184,7 +184,7 @@ function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) {
 <script type="text/javascript">
  function printPage(){
         var tableData = '<table border="1">'+document.getElementsByTagName('table')[0].innerHTML+'</table>';
-        var data = '<button onclick="window.print()"> Stampa </button>'+tableData;
+        var data = '<button onclick="window.print()"><?php echo __('Print','woocommerce-alter-inventory'); ?></button>'+tableData;
         myWindow=window.open('','','width=1000,height=800px');
         myWindow.innerWidth = screen.width;
         myWindow.innerHeight = screen.height;
@@ -195,31 +195,29 @@ function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) {
     };
  </script>
  <br />
-    <a href="javascript:void(0);" class="button" type="submit"  id="printPage" onclick="printPage();">Stampa</a>
+    <a href="javascript:void(0);" class="button" type="submit"  id="printPage" onclick="printPage();"><?php echo __('Print','woocommerce-alter-inventory'); ?></a>
    |
-    <a href="alter-inventory/" class="button" type="submit" >
-Aggiorna</a>
+    <a href="alter-inventory/" class="button" type="submit" ><?php echo __('Update','woocommerce-alter-inventory'); ?></a>
     </div>
     <div align="left" >
 </div>
 </div>
 
 
-							<h2>VARIANTI</h2>
+							<h2><?php echo __('VARIATIONS','woocommerce-alter-inventory'); ?></h2>
 							<table width="100%" style="border: 1px solid #000; width: 100%; margin-bottom: 50px" cellspacing="0" cellpadding="2" >
 								<thead >
 									<tr>
                                       <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('IMAGE', 'woothemes'); ?></th>
 
-										<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('VARIANTE', 'woothemes'); ?></th>
-										<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('PRODOTTO', 'woothemes'); ?></th>
-										<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('SKU', 'woothemes'); ?></th>
-                                        <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('LISTINO', 'woothemes'); ?></th>
-                                         <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('VENDITA', 'woothemes'); ?></th>
-                                       <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('ATTRIBUTI', 'woothemes'); ?></th>
-										<th scope="col" style="text-align:right; border: 1px solid #000; padding: 6px;"><?php _e('STOCK', 'woothemes'); ?></th>
-                                        
-                                        <th class="order-number" scope="col"><?php _e('ACQUISTA', 'woothemes'); ?></th>
+										<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('VARIABLE', 'woocommerce-alter-inventory'); ?></th>
+										<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('PRODUCT', 'woocommerce-alter-inventory'); ?></th>
+										<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('SKU', 'woocommerce-alter-inventory'); ?></th>
+                                        <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('PRICE', 'woocommerce-alter-inventory'); ?></th>
+                                         <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('SELL PRICE', 'woocommerce-alter-inventory'); ?></th>
+                                       <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('ATTRIBUTE', 'woocommerce-alter-inventory'); ?></th>
+										<th scope="col" style="text-align:right; border: 1px solid #000; padding: 6px;"><?php _e('STOCK', 'woocommerce-alter-inventory'); ?></th>                       
+                                        <th class="order-number" scope="col"><?php _e('BUY', 'woothemes'); ?></th>
                            
 									</tr>
 								</thead>
@@ -306,24 +304,24 @@ $product );
                                                                 #reviews {display: none;}
 						    </style>
                             
-                            <h2>PRODOTTI</h2>
+                            <h2><?php echo __('PRODUCTS','woocommerce-alter-inventory'); ?></h2>
                             
                             <table width="100%" style="border: 1px solid #000; width: 100%; margin-bottom: 50px" cellspacing="0" cellpadding="2" >
 								<thead>
 									<tr>
- <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('IMAGE', 'woothemes'); ?></th>
+ <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('IMAGE', 'woocommerce-alter-inventory'); ?></th>
 
-<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('PRODOTTI', 'woothemes'); ?></th>
+<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('PRODUCT', 'woocommerce-alter-inventory'); ?></th>
 
-<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('SKU', 'woothemes'); ?></th>
+<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('SKU', 'woocommerce-alter-inventory'); ?></th>
                                        
-<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('LISTINO', 'woothemes'); ?></th>
+<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('PRICE', 'woocommerce-alter-inventory'); ?></th>
 
- <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('VENDITA', 'woothemes'); ?></th>
+ <th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('SELL PRICE', 'woocommerce-alter-inventory'); ?></th>
 
 
-<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('STOCK', 'woothemes'); ?></th>
-<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('ACQUISTA', 'woothemes'); ?></th>
+<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('STOCK', 'woocommerce-alter-inventory'); ?></th>
+<th scope="col" style="text-align:left; border: 1px solid #000; padding: 6px;"><?php _e('BUY', 'woocommerce-alter-inventory'); ?></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -382,7 +380,7 @@ $product );
                             
                             <div >
                             
-                            <h2>VENDITA PRODOTTO</h2>
+                            <h2><?php echo __('PRODUCT SELL','woocommerce-alter-inventory'); ?></h2>
                             </div>
 <?php echo do_shortcode('[woocommerce_cart]','alterinventory');
 
@@ -391,7 +389,8 @@ $product );
 add_action( 'woocommerce_order_button_text', 'alter_custom_checkout_text' );
  
 function alter_custom_checkout_text() {
-    return "Concludi Vendita";
+	$text= __('Conclude Sale','woocommerce-alter-inventory');
+    return $text;
 } 
 
 
@@ -400,7 +399,7 @@ function alter_custom_checkout_text() {
 <div>
 <h1 align="center">
 <a href="..//alter-inventory/">
----------->-@-  Aggiorna  -@-<---------- </a></a></h1>
+<?php echo __('UPDATE PAGE','woocommerce-alter-inventory'); ?></a></a></h1>
 </div>
 <?php echo do_shortcode('[woocommerce_checkout]','alterinventory'); ?>
 
@@ -464,7 +463,7 @@ function alter_custom_checkout_text() {
 		if (!is_plugin_active('woocommerce/woocommerce.php')) {
 			ob_start();
 			?><div class="error">
-			<h1 style="color:#F00"><p><strong>ATTENZIONE</strong>: WooCommerce non è attivo e Alter Inventory non può funzionare!</p></h1>
+			<h1 style="color:#F00"><p><strong><?php echo __('WARNING', 'woocommerce-alter-inventory'); ?></strong>: <?php echo __('WooCommerce is not active and Alter Inventory can not work!', 'woocommerce-alter-inventory'); ?></p></h1>
 			</div><?php
 			echo ob_get_clean();
 		}
@@ -479,9 +478,10 @@ add_action( 'woocommerce_email_after_order_table', 'woo_add_payment_method_to_ad
 
 function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) { 
 	if ( $is_admin_email ) { 
-	echo '<p><strong>Payment Method:</strong> ' . $order->cod . '</p>'; 
-	} 
 }
+	echo '<p><strong>'.__('Payment Method', 'woocommerce-alter-inventory').':</strong> ' . $order->cod . '</p>'; 
+	} 
+
 
 
 /**
@@ -509,11 +509,8 @@ function woocommerce_rename_coupon_field_on_checkout( $translated_text, $text, $
 		return $translated_text;
 	}
  
-	if ( 'Coupon code' === $text ) {
-		$translated_text = 'Operatore';
-	
-	} elseif ( 'Apply Coupon' === $text ) {
-		$translated_text = 'Inserisci il tuo codice Operatore per la % di sconto.';
+if ( 'Apply Coupon' === $text ) {
+		$translated_text = __('Please enter your code for Operator % discount.','woocommerce-alter-inventory');
 	}
  
 	return $translated_text;
@@ -544,7 +541,7 @@ function prefix_dashboard_widget() {
     # default output
     $output = sprintf(
         '<h2 style="text-align:right">%s</h2>',
-        __( 'Please, configure the widget ☝' )
+        __( 'Please, configure the widget ☝','woocommerce-alter-inventory' )
     );
     
     # check if saved data contains content
@@ -608,8 +605,7 @@ function shortcode_altereports_func() {
 	global $wpdb, $woocommerce, $WC_Order, $woo_options, $WC_API_Reports, $WC_Admin_Dashboard, $WC_Admin_Reports, $WC_Admin_Report, $WC_Report_Customers, $WC_Report_Stock, $WC_alterinventory;
 	
 	
-    $results = $wpdb->get_results( 'SELECT * FROM wp_options WHERE option_id = 1', OBJECT );
-	$out = get_option('<h1 style="color:#F00">alterinventory_error_message</h1>', '<h1 style="color:#F00">Spiacenti questa sezione è vietata agli utenti non autorizzati!</h1>');
+	$out = get_option('<h1 style="color:#F00">alterinventory_error_message</h1>', '<h1 style="color:#F00">'.__('This section is not allowed to users. Please contact the administrator to request the access!','woocommerce-alter-inventory').'</h1>');
     $options = get_option('alterinventory_options');
 	$user = wp_get_current_user();
 						if ( empty( $user->ID )) {
@@ -645,7 +641,7 @@ $customer_orders = get_posts( apply_filters( 'woocommerce_my_account_my_orders_q
 	'meta_key'    => '_customer_user',
 	'meta_value'  => get_current_user_id(),
 	'post_type'   => 'shop_order',
-	'post_status' => 'publish',
+	'post_status' => array( 'wc-processing', 'wc-completed' ),
 	'posts_per_page' => -1,
 	'paged' => get_query_var('paged')
 ) ) );
@@ -683,9 +679,9 @@ Aggiorna</a>
  
 $form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/'  ) ) . '">
 	<div>
-		<label class="screen-reader-text" for="s">' . __( 'Cerca Vendite:', 'woocommerce' ) . '</label>
-		<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Vendite..', 'woocommerce' ) . '" />
-		<input class="button" type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
+		<label class="screen-reader-text" for="s">' . __( 'Search Sales', 'woocommerce-alter-inventory' ) . ' :</label>
+		<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Sales..', 'woocommerce-alter-inventory' ) . '" />
+		<input class="button" type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce-alter-inventory' ) .'" />
 		<input type="hidden" name="post_type" value="product" />
 	</div>
 </form>';
@@ -693,7 +689,7 @@ $form = '<form role="search" method="get" id="searchform" action="' . esc_url( h
 echo $form;
 ?>
 </div>
-<h2>VENDITE</h2>
+<h2><?php  __( 'Sales..', 'woocommerce-alter-inventory' ); ?></h2>
    
 	<table class="shop_table my_account_orders">
 
@@ -701,13 +697,12 @@ echo $form;
         
 			<tr>
    
-				<th class="order-number"><span class="nobr"><?php _e( '#ID Vendita', 'woocommerce' ); ?></span></th>
-				<th class="order-date"><span class="nobr"><?php _e( 'Data', 'woocommerce' ); ?></span></th>
-				<th class="order-status"><span class="nobr"><?php _e( 'Stato', 'woocommerce' ); ?></span></th>
-				<th class="order-total"><span class="nobr"><?php _e( 'Totale', 'woocommerce' ); ?></span></th>
-                <th class="order-actions"><span class="nobr"><?php _e( 'Prodotti / Attributi / Totale', 'woocommerce' ); ?></span></th>
-				<th class="order-actions"><span class="nobr"><?php _e( 'Dettagli', 'woocommerce' ); ?></span></th>
-                <th class="order-actions"><span class="nobr"><?php _e( 'Annullare', 'woocommerce' ); ?></span></th>
+				<th class="order-number"><span class="nobr"><?php _e( '#ID Sale', 'woocommerce-alter-inventory' ); ?></span></th>
+				<th class="order-date"><span class="nobr"><?php _e( 'Date', 'woocommerce-alter-inventory' ); ?></span></th>
+				<th class="order-total"><span class="nobr"><?php _e( 'Total', 'woocommerce-alter-inventory' ); ?></span></th>
+                <th class="order-actions"><span class="nobr"><?php _e( 'Products / Attributi / Totale', 'woocommerce-alter-inventory' ); ?></span></th>
+				<th class="order-actions"><span class="nobr"><?php _e( 'Details', 'woocommerce-alter-inventory' ); ?></span></th>
+                <th class="order-actions"><span class="nobr"><?php _e( 'Cancel', 'woocommerce-alter-inventory' ); ?></span></th>
 			</tr>
 		</thead>
 
@@ -722,7 +717,7 @@ echo $form;
 
 				$order->populate( $customer_order );
 
-				$status     = get_term_by( 'slug', $order->status, 'shop_order_status' );
+
 				$item_count = $order->get_item_count();
 				
 
@@ -735,11 +730,9 @@ echo $form;
 					<td class="order-date">
 						<time datetime="<?php echo date( 'Y-m-d', strtotime( $order->order_date ) ); ?>" title="<?php echo esc_attr( strtotime( $order->order_date ) ); ?>"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></time>
 					</td>
-					<td class="order-status" style="text-align:left; text-transform:uppercase; white-space:nowrap; color:#0C0"  >
-						<?php echo ucfirst( __( $status->name, 'woocommerce' ) ); ?>
-					</td>
+
 					<td class="order-total">
-						<?php echo sprintf( _n( '<strong>%s</strong> x <strong>%s Prodotto</strong>', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
+						<?php echo sprintf( _n( '<strong>%s</strong> x <strong>%s Product</strong>', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
 					</td>
                    
 		
@@ -747,8 +740,8 @@ echo $form;
   <table class="shop_table order_details">
 	<thead>
 		<tr>
-			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
+			<th class="product-name"><?php _e( 'Product', 'woocommerce-alter-inventory' ); ?></th>
+			<th class="product-total"><?php _e( 'Total', 'woocommerce-alter-inventory' ); ?></th>
 		</tr>
 	</thead>
     
@@ -825,7 +818,7 @@ echo $form;
 
 						$actions['view'] = array(
 								'url'  => $order->get_view_order_url(),
-								'name' => __( 'Dettagli', 'woocommerce' )
+								'name' => __( 'Details', 'woocommerce-alter-inventory' )
 							);
 
 							$actions = apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order );
@@ -849,7 +842,7 @@ echo $form;
 							
 								$actions['cancel'] = array(
 									'url'  => $order->get_cancel_order_url( get_permalink( wc_get_page_id( 'alter-inventory' ) ) ),
-									'name' => __( 'Cancel', 'woocommerce' )
+									'name' => __( 'Cancel', 'woocommerce-alter-inventory' )
 								);
 							
 

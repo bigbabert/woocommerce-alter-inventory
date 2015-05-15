@@ -3,7 +3,7 @@
 if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) 
     exit();
 
-$alterinventory_plugin_disattivazione = 'woocommerce-alter-inventory';
+$alterinventory_plugin_disattivazione = 'alter-inventory';
 
 // For Single site
 if ( !is_multisite() ) 
