@@ -1,0 +1,250 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.alter_inventory_page .shipping_calculator, .alter_inventory_page .woocommerce .cart-collaterals, .alter_inventory_page .alter_inventory_header .cart-collaterals, .alter_inventory_page .woocommerce-info, .alter_inventory_page .woocommerce-message, .alter_inventory_page .customer_details, .alter_inventory_page .col2-set, .alter_inventory_page #reviews {
+    display: none !important;
+}
+.alter_inventory_page table, .alter_reports_page table {
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 0 -1px 24px 0;
+    text-align: left;
+    width: 100%;
+    border-collapse: separate;
+    border-radius: 5px;
+}
+.alter_inventory_page span.input-group-btn {
+    height: 40px;
+}
+
+
+.alter_inventory_page .remove{
+    display: block;
+    font-size: 1.8em;
+    height: 1em;
+    width: 1em;
+    line-height: 1;
+    border-radius: 100%;
+    color: red!important;
+    text-decoration: none;
+    font-weight: 700;
+    border: 0;
+}
+.alter_inventory_page .remove:hover{
+    color: #fff!important;
+    background: red;
+}
+.alter_inventory_page table td, .alter_reports_page table td, .alter_inventory_page table th, .alter_reports_page table th {
+    font-weight: 700;
+    padding: 9px 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+.alter_inventory_page .product-name, .alter_inventory_page .prod_attrs, 
+.alter_reports_page .prod_attrs, .alter_reports_page .product-name, 
+.alter_reports_page table tabe td, .alter_reports_page table tabe dd, 
+.alter_reports_page table tabe dl, .alter_reports_page .variation,
+.alter_inventory_page tr.cart-subtotal th, .alter_inventory_page tr.order-total th{
+    text-align: left !important;
+}
+.alter_reports_page table table, .alter_reports_page table table td {
+    border: 0;
+}
+.alter_inventory_page table td, .alter_reports_page table td {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 6px 12px;
+}
+.alter_inventory_page .update_cart {
+    float: right;
+}
+.alter_inventory_page input.qty {
+    width: auto;
+}
+.alter_inventory_page td.product-name dl.variation, .alter_reports_page  dl.variation {
+    margin: .20em 0;
+}
+.alter_inventory_page td.product-name dl.variation dt, .alter_reports_page  dl.variation dt {
+    font-weight: 700;
+    padding: 0 0 .25em;
+    margin: 0 4px 0 0;
+    clear: left;
+    display: inline-block;
+    float: left;
+}
+.alter_reports_page table table td a {
+    float: left;
+    text-align: left;
+}
+.alter_reports_page dl.variation dd {
+    display: inline-block;
+    float: left;
+    margin: 0; 
+}
+.at_disllowed #loginform p {
+    max-width: 320px;
+}
+.at_disllowed #loginform p input {
+    max-width: 45%;
+    float: left;
+    margin-bottom: 16px;
+}
+.at_disllowed #loginform p label {
+    width: 45%;
+    float: left;
+    margin-bottom: 16px;
+    line-height: 2.4;
+}
+.at_disllowed #loginform .login-remember label {
+    line-height: 1.4;
+}
+.at_disllowed #loginform .login-remember input {
+    float: unset;
+}
+.alter_inventory_page .quantity {
+    width: 145px;
+    display: inline-block;
+}
+.alter_inventory_page .prev-next-posts {
+    width: 100%;
+    display: block;
+    margin: 16px auto;
+}
+.alter_inventory_page .prev-posts-link {
+    float: left;
+    width: 50%;
+    min-width: 50%;
+    display: block;
+    text-align: center;
+}
+ .alter_inventory_page .next-posts-link {
+    float: right;
+    width: 50%;
+    min-width: 50%;
+    display: block;
+    text-align: center;
+}
+ .alter_inventory_page .tabs_at h2 {
+   width: auto;
+   font-size: 18px;
+   float: left;
+   display: block;
+   cursor: pointer;
+   margin-left: 18px;
+}
+.alter_inventory_page .tabs_at {
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+}
+ .alter_inventory_page .tabs_at h2.active {
+   text-decoration: underline;
+}
+.alter_inventory_page .input-group .input-group-btn .btn {
+    height: 32px;
+}
+.alter_inventory_page .woocommerce .quantity .qty {
+    width: 100%;
+}
+.alter_inventory_page .hentry img {
+    height: auto; 
+    max-width: 99%;
+    padding: 8px;
+}
+.alter_inventory_page h2 { 
+    padding-top: 20px;
+}
+.alter_inventory_page table tr:last-child td:first-child {
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    border-bottom-left-radius:10px; 
+}
+
+.alter_inventory_page table tr:last-child td:last-child {
+    -moz-border-radius-bottomright:10px;
+    -webkit-border-bottom-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+
+.alter_inventory_page .button_add a, .button_add a:visited, .button_add a:active  {
+    background-color: #935386;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.alter_inventory_page .button_add a:hover  {
+    background-color: #dedede;
+    color: #935386;    
+}
+.alter_inventory_page tr {
+    border-bottom: 1px solid #dedede;
+}
+
+.alter_reports_page .hentry img { 
+    height: auto; 
+    max-width: 35%;
+}
+.alter_reports_page .woocommerce-message { 
+    display:none;
+}
+.alter_reports_page table tr {
+    border-bottom: 1px solid #dedede;
+}
+.alter_reports_page table table tr {
+    border-bottom: none;
+}
+.alter_reports_page table  tr > td:first-of-type {
+    border-right: 1px solid #dedede;
+}
+.alter_reports_page table table tr > td:first-of-type {
+    border-right: none;
+    width: 198px;
+}
+.alter_reports_page .details_to_cart_button, .details_to_cart_button:active, .details_to_cart_button:visited {
+    background-color: #935386;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.alter_reports_page .details_to_cart_button:hover {
+    background-color: #dedede;
+    color: #935386;
+    text-decoration: none;
+}
+.alter_reports_page .delete_to_cart_button, .delete_to_cart_button:visited, .delete_to_cart_button:active {
+    background-color: red;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;                                
+}
+.alter_reports_page .delete_to_cart_button:hover {
+    background-color: #dedede;
+    color: #red;
+    text-decoration: none;
+}

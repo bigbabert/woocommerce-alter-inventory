@@ -1,0 +1,9 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+body.logged-in.woocommerce-checkout.woocommerce-order-received.page-checkout header.title h3,
+form.checkout.woocommerce-checkout div#customer_details,
+body.logged-in.woocommerce-checkout.woocommerce-order-received.page-checkout address {
+display: none !important;
+} 

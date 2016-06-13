@@ -1,84 +1,114 @@
-
-=== Alter Inventory - Woocommerce Plugin ===
-Contributors: Bigbabert
+=== Plugin Name ===
+Contributors: (this should be a list of wordpress.org userid's)
 Donate link: http://www.altertech.it/
-Tags: woocommerce, inventory, product variations
-Requires at least: 3.6.1
-Tested up to: 4.2
-Stable tag: 1.2.2
+Tags: comments, spam
+Requires at least: 3.0.1
+Tested up to: 3.4
+Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Woocommerce Inventory is a alternative products display, plugin worked on Wordpress 4.2 & Woocommerce 2.2.8.
+Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 
 == Description ==
 
-Manage product inventory and synchronized alternatively in wordpress and woocommerce.
+This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
 
-This plugin display all your Woocommerce inventory, products and variable products as variation, in user friendly mode on front-end in a reserved page, you can create this page simply adding a shortcode [alterinventory] to a new page. Powerful improvement coming soon: manage your products, add and remove product with barcode input area and fisic shop front-end page.
+For backwards compatibility, if this section is missing, the full length of the short description will be used, and
+Markdown parsed.
 
-Place the shortcode, with the needed parameters where you want the inventory to appear. Syntax is:
-`[alterinventory orderby={title|sku|stock|price|taglia|colore} sort={ASC|DESC}]`
+A few notes about the sections above:
 
-For example:
+*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
+*   "Tags" is a comma separated list of tags that apply to the plugin
+*   "Requires at least" is the lowest version that the plugin will work on
+*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
+higher versions... this is just the highest one you've verified.
+*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
+stable.
 
-`[alterinventory]` will print the inventory, with the items ordered by title.
-`[alterinventory orderby=sku]` will print the inventory ordered by SKU.
-`[alterinventory orderby=sku sort=DESC]` will print the inventory sorteb by SKU in reverse order.
+    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
+if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
+for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
+is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
+your in-development version, without having that information incorrectly disclosed about the current stable version
+that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
 
-This plugin allows you to publish a full inventory on a frontend page with a simple shortcode. **Every registerd user** will be able to view it, while unregistered users will get an error message.
+    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
+you put the stable version, in order to eliminate any doubt.
 
-Special thanks to [Mike Jolley](http://profiles.wordpress.org/mikejolley/) who provided the [initial script](https://t.co/CtLxf1XCVN)
 == Installation ==
 
-How install Alter Inventory plugin:
+This section describes how to install the plugin and get it working.
 
+e.g.
 
-1. Install and activate WooCommerce
-2. Go tu Plugin->Add New
-3. Select the downloaded .zip file and upload and activate it
-4. Insert this shortcode: [alterinventory] in the page you want use like inventory
+1. Upload `woocommerce-alter-inventory.php` to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
 
 == Frequently Asked Questions ==
 
-= Why i can’t see attribute for variations? =
+= A question that someone might have =
 
-You don’t need care of this the plugin view the attributes and displayed on inventory page.
+An answer to that question.
 
+= What about foo bar? =
+
+Answer to foo bar dilemma.
 
 == Screenshots ==
 
-1. This is a screenshot of inventory page.
-
-2. This is a screenshot of report page.
+1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
+the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
+directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
+(or jpg, jpeg, gif).
+2. This is the second screen shot
 
 == Changelog ==
-= 1.
-= 1.1 =
-= 0.8 =
-* First Release
 
-== Featured ==
+= 1.0 =
+* A change since the previous version.
+* Another change.
 
+= 0.5 =
+* List versions from most recent at top to oldest at bottom.
 
-1. View full inventory in front-end
-2. Add your order for inventory
-3. View attribute for variations
+== Upgrade Notice ==
 
-= Support =
+= 1.0 =
+Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
 
-Need support? This is the right way to ask support:
-That's the way:
+= 0.5 =
+This version fixes a security related bug.  Upgrade immediately.
 
-* Register on http://www.blog.altertech.it 
-* Send a mail to bigbabert@gmail.com with object ‘alterinventory’
+== Arbitrary section ==
 
-== Upgrade notice ==
-= 1.1 =
-= 0.8.0 =
+You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
+plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
+"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
 
-First Release
+== A brief Markdown Example ==
 
-If you are new to WordPress : http://codex.wordpress.org/Managing_Plugins#Installing_Plugins.
+Ordered list:
 
+1. Some feature
+1. Another feature
+1. Something else about the plugin
 
+Unordered list:
+
+* something
+* something else
+* third thing
+
+Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
+Titles are optional, naturally.
+
+[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
+            "Markdown is what the parser uses to process much of the readme file"
+
+Markdown uses email style notation for blockquotes and I've been told:
+> Asterisks for *emphasis*. Double it up  for **strong**.
+
+`<?php code(); // goes in backticks ?>`
